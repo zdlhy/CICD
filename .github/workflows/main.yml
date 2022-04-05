@@ -55,11 +55,10 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           user: ${{ secrets.USER }}
-          # pass: ${{ secrets.DC_PASS }}
           key: ${{ secrets.KEY }}
+          # first_ssh: |
+          #   rm -rf /home/user/web/web-zip/dist
           scp: |
-            ./README.md => /home/user/web/web-zip/
-          last_ssh: |
-            echo $LASTSSH 
-            ls -la
+            ./dist/* => /home/user/web/web-zip/
+         
       
