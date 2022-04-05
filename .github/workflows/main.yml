@@ -45,7 +45,7 @@ jobs:
       - name: SCP Files
         uses: appleboy/scp-action@v0.0.1
         with:
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.host }}
           key: ${{ secrets.SSH_KEY }}
           source: "dist/*"
           target: "/home/user/web/web-zip"
