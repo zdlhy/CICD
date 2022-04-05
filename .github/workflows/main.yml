@@ -42,12 +42,14 @@ jobs:
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          ARGS: "-rltgoDzvO"
+          SSH_PRIVATE_KEY: ${{ secrets.KEY }}
+          # ARGS: "-rltgoDzvO"
           SOURCE: "dist/"
-          REMOTE_HOST: "co2e.shop"
+          REMOTE_HOST: ${{ secrets.HOST }}
+          # "co2e.shop"
           # ${{ secrets.HOST }}
-          REMOTE_USER: "user"
+          REMOTE_USER: ${{ secrets.USER }}
+          # "user"
           # ${{ secrets.USER }}
           TARGET: "/home/user/web/web-zip/"
      
