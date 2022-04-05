@@ -46,7 +46,7 @@ jobs:
           ARGS: "-rltgoDzvO"
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.HOST }}
-          REMOTE_USER: "user@co2e-server"
           TARGET: "/home/user/web/web-zip/"
+          # REMOTE_USER: "user@co2e-server"
      
       
