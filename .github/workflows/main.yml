@@ -39,8 +39,8 @@ jobs:
       - name: build project
         run: yarn build
       
-      - name: scp project
-        run: scp
+      # - name: scp project
+      #   run: scp
 
       - name: SCP Files
         uses: appleboy/scp-action@v0.0.1
