@@ -39,16 +39,16 @@ jobs:
       - name: build project
         run: yarn build
       
-      # - name: scp project
-      #   run: scp
+      - name: scp project
+        run: scp README.md user@co2e.shop:/home/user/web/web-zip
 
-      - name: SCP Files
-        uses: appleboy/scp-action@v0.0.1
-        with:
-          host: ${{ secrets.host }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "dist/*"
-          target: "/home/user/web/web-zip"
+      # - name: SCP Files
+      #   uses: appleboy/scp-action@v0.0.1
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     key: ${{ secrets.SSH_KEY }}
+      #     source: "dist/*"
+      #     target: "/home/user/web/web-zip/"
 
 
 
