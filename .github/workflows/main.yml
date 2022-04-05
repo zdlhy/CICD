@@ -38,9 +38,6 @@ jobs:
 
       - name: build project
         run: yarn build
-      
-      - name: scp project
-        run: scp README.md user@co2e.shop:/home/user/web/web-zip
 
       - name: Deploy to Staging server
           uses: easingthemes/ssh-deploy@main
