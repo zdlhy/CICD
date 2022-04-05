@@ -39,19 +39,27 @@ jobs:
       - name: build project
         run: yarn build
 
-      - name: Deploy to Staging server
-        uses: easingthemes/ssh-deploy@v2
+      # - name: Deploy to Staging server
+      #   uses: easingthemes/ssh-deploy@v2
+      #   env:
+      #     SSH_PRIVATE_KEY: ${{ secrets.KEY }}
+      #     SOURCE: "dist/"
+      #     REMOTE_HOST: ${{ secrets.HOST }}
+      #     REMOTE_USER: ${{ secrets.USER }}
+      #     TARGET: ${{ secrets.TARGET }}
+
+      - name: scp ssh pipelines
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.KEY }}
-          # ARGS: "-rltgoDzvO"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.HOST }}
-          # "co2e.shop"
-          # ${{ secrets.HOST }}
-          REMOTE_USER: ${{ secrets.USER }}
-          # "user"
-          # ${{ secrets.USER }}
-          TARGET: ${{ secrets.TARGET }}
-          # "/home/user/web/web-zip/"
-     
+          LASTSSH: "Doing something after copying"
+        with:
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER }}
+          # pass: ${{ secrets.DC_PASS }}
+          key: ${{ secrets.KEY }}
+          scp: |
+            ./README.md => /home/user/web/web-zip/
+          last_ssh: |
+            echo $LASTSSH 
+            ls -la
       
