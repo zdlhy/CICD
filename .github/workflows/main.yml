@@ -40,7 +40,7 @@ jobs:
         run: yarn build
 
       - name: Deploy to Staging server
-        uses: easingthemes/ssh-deploy@main
+        uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.KEY }}
           # ARGS: "-rltgoDzvO"
@@ -51,6 +51,7 @@ jobs:
           REMOTE_USER: ${{ secrets.USER }}
           # "user"
           # ${{ secrets.USER }}
-          TARGET: "/home/user/web/web-zip/"
+          TARGET: ${{ secrets.TARGET }}
+          # "/home/user/web/web-zip/"
      
       
