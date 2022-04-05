@@ -37,11 +37,15 @@ jobs:
         run: yarn
         
   build:
+    runs-on: ubuntu-latest
+    needs: install
     steps:
       - name: build project
         run: yarn build
 
   docker:
+    runs-on: ubuntu-latest
+    needs: [install, build]
     steps:
       - name: scp project
         run: yarn build
