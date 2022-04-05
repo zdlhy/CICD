@@ -42,6 +42,16 @@ jobs:
       - name: scp project
         run: scp README.md user@co2e.shop:/home/user/web/web-zip
 
+      - name: Deploy to Staging server
+          uses: easingthemes/ssh-deploy@main
+          env:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+            ARGS: "-rltgoDzvO"
+            SOURCE: "dist/"
+            REMOTE_HOST: ${{ secrets.HOST }}
+            REMOTE_USER: "user@co2e-server"
+            TARGET: "/home/user/web/web-zip/"
+      
       # - name: SCP Files
       #   uses: appleboy/scp-action@v0.0.1
       #   with:
