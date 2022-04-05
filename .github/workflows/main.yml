@@ -46,7 +46,7 @@ jobs:
       #     SOURCE: "dist/"
       #     REMOTE_HOST: ${{ secrets.HOST }}
       #     REMOTE_USER: ${{ secrets.USER }}
-      #     TARGET: ${{ secrets.TARGET }}
+      #     TARGET: 
 
       - name: scp ssh pipelines
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
@@ -57,8 +57,8 @@ jobs:
           user: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           # first_ssh: |
-          #   rm -rf /home/user/web/web-zip/dist
+          #   rm -rf ${{ secrets.TARGET }}/
           scp: |
-            ./dist/* => /home/user/web/web-zip/
+            ./dist/* => ${{ secrets.TARGET }}
          
       
