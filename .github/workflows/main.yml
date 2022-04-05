@@ -39,26 +39,15 @@ jobs:
       - name: build project
         run: yarn build
 
-      # - name: Deploy to Staging server
-      #   uses: easingthemes/ssh-deploy@v2
-      #   env:
-      #     SSH_PRIVATE_KEY: ${{ secrets.KEY }}
-      #     SOURCE: "dist/"
-      #     REMOTE_HOST: ${{ secrets.HOST }}
-      #     REMOTE_USER: ${{ secrets.USER }}
-      #     TARGET: 
-
       - name: scp ssh pipelines
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
-        env:
-          LASTSSH: "Doing something after copying"
         with:
           host: ${{ secrets.HOST }}
           user: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
-          first_ssh: |
-            cd ${{ secrets.TARGET }} &&
-            rm -rf web.zip
+          # first_ssh: |
+          #   cd ${{ secrets.TARGET }} &&
+          #   rm -rf *
           scp: |
             ./dist/* => ${{ secrets.TARGET }}
          
