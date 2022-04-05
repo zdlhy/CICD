@@ -45,8 +45,10 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
           ARGS: "-rltgoDzvO"
           SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.HOST }}
-          REMOTE_USER: ${{ secrets.USER }}
+          REMOTE_HOST: "co2e.shop"
+          # ${{ secrets.HOST }}
+          REMOTE_USER: "user"
+          # ${{ secrets.USER }}
           TARGET: "/home/user/web/web-zip/"
      
       
