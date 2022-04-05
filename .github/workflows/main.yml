@@ -50,5 +50,8 @@ jobs:
           #   rm -rf *
           scp: |
             ./dist/* => ${{ secrets.TARGET }}
+          # last_ssh: |
+          #   echo $LASTSSH 
+          #   ls -la
          
       
